@@ -7,10 +7,11 @@
 
 import React from "react"
 import PropTypes from "prop-types"
+import GlobalStyle from "../theme/globalstyles"
 import { useStaticQuery, graphql } from "gatsby"
-
+import "../utils/icon-library"
 import Header from "./header"
-import "./layout.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -25,6 +26,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
+      <GlobalStyle />
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div
         style={{
@@ -33,7 +35,12 @@ const Layout = ({ children }) => {
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
-        <main>{children}</main>
+        <main>{children}
+          <div>
+            <FontAwesomeIcon icon="check-square" />
+    Favorite beverage: <FontAwesomeIcon icon="coffee" />
+          </div>
+        </main>
         <footer style={{
           marginTop: `2rem`
         }}>
