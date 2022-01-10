@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-const sizes = {
+const sizes: { [key: string]: any } = {
   giant: 1440,
   bigDesktop: 1200,
   desktop: 1000,
@@ -12,13 +12,13 @@ const sizes = {
 };
 
 // iterate through the sizes and create a media template
-export const media = Object.keys(sizes).reduce((accumulator, label) => {
+export const media = Object.keys(sizes).reduce((accumulator: any, label: string) => {
   // use em in breakpoints to work properly cross-browser and support users
   // changing their browsers font-size: https://zellwk.com/blog/media-query-units/
   const emSize = sizes[label] / 16;
-  accumulator[label] = (...args) => css`
+  accumulator[label] = (...args: TemplateStringsArray) => css`
     @media (max-width: ${emSize}em) {
-      ${css(...args)};
+      ${css(args)};
     }
   `;
   return accumulator;

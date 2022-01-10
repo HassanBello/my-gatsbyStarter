@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Site Title`,
+    title: `Title`,
     description: `Site Description`,
     author: `@raginghuman`,
   },
@@ -19,7 +19,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `Montserrat\:300,400,700`
+          `Fira Sans\:300,400,700`
         ],
         display: 'swap'
       }
